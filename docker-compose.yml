@@ -1,0 +1,44 @@
+version: '3'
+services:
+  # PHP + Apache のコンテナ
+  myapp-web:
+    container_name: myapp-web
+    # Dockerfile で作ったイメージを指定
+    build: ./docker
+    # 80 ポートをコンテナの 80 ポートにマッピング
+    # (http://localhost/ などで myapp-web コンテナにアクセス)
+    ports:
+      - "80:80"
+    # ローカルの workdir/html フォルダを
+    # コンテナの /var/www/html にマッピング
+    volumes:
+      - ./html:/var/www/html
+
+  # Mysql のコンテナ
+  myapp-db:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: db_name
+      MYSQL_USER: db_user
+      MYSQL_PASSWORD: db_password
+      MYSQL_ROOT_PASSWORD: root
+      TZ: "Asia/Tokyo"
+    volumes:
+      - ./myapp:/var/lib/mysql
+
+  # phpMyAdmin のコンテナ
+  myapp-pma:
+    container_name: myapp-pma
+    image: phpmyadmin/phpmyadmin:latest
+    environment:
+      PMA_HOST: myapp-db
+      # phpMyAdmin でログインするアカウント
+      # (省略するとログインフォーム表示)
+      PMA_USER: db_user
+      PMA_PASSWORD: db_password
+    # 8080 ポートをコンテナの 80 ポートにマッピング
+    # (http://localhost:8080/ などで myapp-pma コンテナにアクセス)
+    ports:
+      - "8080:80"
