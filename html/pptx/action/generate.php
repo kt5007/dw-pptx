@@ -77,8 +77,8 @@ foreach($phrases as $phrase){
     $shape = $slide->createRichTextShape()
         ->setHeight(600)
         ->setWidth(900)
-        ->setOffsetX(20)
-        ->setOffsetY(10);
+        ->setOffsetX(30)
+        ->setOffsetY(20);
     $shape->getActiveParagraph()
         ->getAlignment()
         ->setHorizontal(Alignment::HORIZONTAL_LEFT);
