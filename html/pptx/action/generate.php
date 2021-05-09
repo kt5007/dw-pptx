@@ -35,7 +35,8 @@ function deletePlainLine ($string){
 // postから取得
 $title = $_POST['title'];
 $text_phrases = htmlspecialchars( $_POST['text_phrases']);
-$file_name = $title.'.pptx';
+$text = str_replace(array("\r\n", "\r", "\n"), '', $title);
+$file_name = $text.'.pptx';
 $phrases = deletePlainLine ($text_phrases);
 
 
