@@ -56,8 +56,8 @@ $slide = $phpPres->getActiveSlide();
 $shape = $slide->createRichTextShape()
     ->setHeight(300)
     ->setWidth(600)
-    ->setOffsetX(170)
-    ->setOffsetY(90);
+    ->setOffsetX(160)
+    ->setOffsetY(70);
 $shape->getActiveParagraph()
     ->getAlignment()
     ->setHorizontal(Alignment::HORIZONTAL_CENTER);
@@ -65,7 +65,7 @@ $textRun = $shape->createTextRun($title);
 $textRun->getFont()
     ->setName('ＭＳ Ｐゴシック')
     ->setBold(false)
-    ->setSize(48)
+    ->setSize(40.5)
     ->setColor(new Color('FF000000'));
 
 $index = 1;

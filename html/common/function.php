@@ -12,7 +12,7 @@ function getTodayTitle(){
     '土', //6
   ];
   $weekNum = date('w');
-  $title = date('Y年n月j日') . $weeks[$weekNum] . '曜日' . '明け方の御言葉';
+  $title = date('Y年n月j日') . $weeks[$weekNum] . '曜日' . PHP_EOL .'明け方の御言葉';
   return $title; 
 }
 
