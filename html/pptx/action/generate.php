@@ -79,7 +79,7 @@ foreach($phrases as $phrase){
         ->setHeight(600)
         ->setWidth(900)
         ->setOffsetX(30)
-        ->setOffsetY(20);
+        ->setOffsetY(60);
     $shape->getActiveParagraph()
         ->getAlignment()
         ->setHorizontal(Alignment::HORIZONTAL_LEFT);
